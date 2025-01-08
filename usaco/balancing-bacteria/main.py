@@ -1,21 +1,25 @@
-n = int(input())
-
+N = int(input())
 bacteria = list(map(int, input().split()))
 
+offset = 0
+mult_sum = 0
+count = 0
 
-def adder_pesticide(level):
-    for i in range(n):
-        affect = level - i;
-        bacteria[n-i-1] = bacteria[n-i-1] + affect;
+for i in range(N):
+    bacteria[i] += offset
 
-def subtracter_pesticide(level):
-    for i in range(n):
-        affect = level - i;
-        bacteria[n-i-1] = bacteria[n-i-1] - affect;
+    mul = bacteria[i] * -1
 
-# every bacteria should be 0 after this loop
-
-for i in range(n):
+    if i == N-1:
+        bacteria[i] += mul
+        count += abs(mul)
+        break
     
+    mult_sum += mul
 
-print(sum(bacteria))
+    offset += mult_sum + mul
+    bacteria[i] += mul
+
+    count += abs(mul)
+
+print(count)

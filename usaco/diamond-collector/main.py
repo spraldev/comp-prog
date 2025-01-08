@@ -1,63 +1,38 @@
-n = 0;
-k = 0;
-diamonds = []
+N, K = 0,0
+arr = []
 
-with open("diamond.in", "r") as fin:
-    n, k = map(int, fin.readline().strip().split())
+with open("diamond.in", "r") as f:
+    N, K = map(int, f.readline().split())
+    for i in range(N):
+        arr.append(int(f.readline()))
 
-    for i in range(n):
-        diamonds.append(int(fin.readline().strip().split()[0]))
+anws = 0
 
+for i in range(N):
+    diamond = arr[i]
 
-print(diamonds)
+    new_arr = []
+    counter = 0
 
-i = 0;
+    for diamond2 in arr:
+         if diamond <= diamond2 <= diamond + K:
+            new_arr.append(diamond2)
+            counter += 1
 
-arrr = []
+            if diamond2 == 6:
+                print(diamond - diamond2)
 
-print("\n\n")
+    print(new_arr, diamond)
 
-for _ in range(n):
-    arr = []
-
-    count = 0;
-
-    print(diamonds[i])
-    print("\n\n")
-
-    for diamond in diamonds:
-        if(i == n-1):
-            break
-        if(i== diamonds.index(diamond)):
-            continue;
-        
-        print(diamonds[i], diamond)
-        print(abs(diamonds[i] - diamond))
-
-
-        if abs(diamonds[i] - diamond) <= k:
-            arr.append(diamond)
-            print('adding')
-            print(arr)
-
-        print("--------")
-
-    print("\n\n")
-
-    arrr.append(len(arr))
-
-    i += 1;
+    anws = max(anws, counter)
 
 
 
-
-print(arrr)
-
-with open("diamond.out", "w") as fout:
-    fout.write(str(max(arrr)))
 
 
     
 
 
+with open("diamond.out", "w") as f:
+    f.write(str(anws))
 

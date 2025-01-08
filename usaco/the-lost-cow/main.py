@@ -1,61 +1,42 @@
-x = 0
-y = 0
+x, y = 0,0
 
-with open("lostcow.in", "r") as f:
-    content = f.read()
-
-    x = int(content.split()[0])
-    y = int(content.split()[1])
+with open('lostcow.in', "r") as f:
+    x, y = map(int, f.readline().strip().split())
 
 
+neg = False
+greater = False
 
-newnum = x;
-newnumReverse = x;
+if x > y:
+    greater = True
 
+steps = 0
+num = 1
 
-reverse = False;
-difference = 1;
-
-done = False
-miles = 0
-
-
-print(x, y)
-
-
-while done == False:
-    if(reverse):
-        newnumReverse = newnumReverse  - difference
-
-        if(newnumReverse  <= y and y <= x):
-            done = True
-            miles = miles + difference
-            break
-        else:
-            miles += difference * 2
-
-
-
-        reverse = not reverse
-
-
+while x < y if not greater else x > y:
+    if not neg:
+        x += num
+        neg = True
     else:
-        newnum = newnum + difference
-
-        miles += difference * 2
-        
-        
-
-        if(newnum >= y and y >= x):
-            done = True
-            miles = miles + difference
-            break
-        else:
-            miles += difference * 2
-
-        reverse = not reverse
-
-   
+        x -= num
+        neg = False
 
 
-print(miles)
+    otherNum = num + num * 2
+    if x < y if not greater else x > y:
+        steps += num
+        num = otherNum
+    else:
+        steps += abs(x - y)
+        break
+
+    num *= 2
+    
+
+
+
+
+
+
+with open('lostcow.out', "w") as f:
+    f.write(str(steps) + "\n")
