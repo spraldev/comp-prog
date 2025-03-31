@@ -1,3 +1,11 @@
+#BONOUS: 7 liner solution lol
+# from collections import Counter
+# N, A = int(input()), list(map(int, input().split()))
+# c = Counter(A)
+# m = 0
+# for i in range(N+1):
+#     print(max(m, c[i]))
+#     m += c[i] == 0
 
 N = int(input())
 a = list(map(int, input().split()))

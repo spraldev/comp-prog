@@ -1,6 +1,7 @@
 # try to reconstruct the optimal program?
 # wait.... there is no need for the count of the repeating sequences
 
+
 def find_repeating_sequences(lst):
     result = []
     i = 0
@@ -34,17 +35,13 @@ def solve():
     seqs = find_repeating_sequences(A)
     cnt = 0
 
-    print(seqs)
+
 
     for sqr in seqs:
         newSqr = sqr[0]
-        newSeqs = find_repeating_sequences(newSqr)
-        print(newSeqs)
-        for nsqr in newSeqs:
-            cnt += len(set(nsqr[0]))
+        cnt += len(set(newSqr))
 
 
-    print(cnt)
     
     print("YES" if cnt <= K else "NO")
 

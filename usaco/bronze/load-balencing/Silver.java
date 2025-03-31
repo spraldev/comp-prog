@@ -53,11 +53,11 @@ public class Silver {
         List<Map.Entry<Integer,Integer>> x_entries = new ArrayList<>(x_res.entrySet());
         x_entries.sort(Comparator.comparingInt(Map.Entry::getValue));
 
-        int xCount = Math.min(300, x_entries.size());
+        int xCount = Math.min(1000, x_entries.size());
 
         List<Map.Entry<Integer,Integer>> y_entries = new ArrayList<>(y_res.entrySet());
         y_entries.sort(Comparator.comparingInt(Map.Entry::getValue));
-        int yCount = Math.min(300, y_entries.size());
+        int yCount = Math.min(1000, y_entries.size());
 
         int[] x_final = new int[xCount];
         int[] y_final = new int[yCount];
